@@ -11,16 +11,15 @@ func GenerateShape(text string, charMap map[rune][]string) string {
 	for i := 0; i < 8; i++ {
 		result = append(result, "")
 	}
-	// Salman 
+
 	for _, char := range text {
 		charShape, found := charMap[char]
 		if found {
 			for i, line := range charShape {
 
 				result[i] += line
-				//result[i] = reult[i] +line
 			}
 		}
 	}
-	return strings.Join(result[:len(result)-1], "\n")
+	return strings.Join(result[:len(result)], "\n")
 }

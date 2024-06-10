@@ -6,7 +6,7 @@ import (
 )
 
 // this function will split the content content file and build map to each character
-func MapFileContentToRunes(fileContent string) map[rune][]string {
+func MapFileContentToRunes(fileName string, fileContent string) map[rune][]string {
 	startChar := ' '
 	// blocks := strings.Split(fileContent, "\r\n\r\n")
 	// if(fileName)
@@ -16,17 +16,21 @@ func MapFileContentToRunes(fileContent string) map[rune][]string {
 	// 	fmt.Printf("v: %v\n", v)
 	// }
 	charMap := make(map[rune][]string)
+	// fmt.Printf("%v", blocks[92])
 	for i, block := range blocks {
 		lines := strings.Split(block, "\n")
 		if len(lines) > 0 {
-			//32+0 =32
 			char := rune(startChar + rune(i))
 			// fmt.Println(i)
-
 			charMap[char] = lines
 		} else {
 			log.Fatal("Worning: empty or malformed block at index ", i)
 		}
 	}
+
+	// for _, v := range charMap['|'] {
+	// 	fmt.Printf("%v\n", v)
+	// }
+
 	return charMap
 }
