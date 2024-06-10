@@ -39,7 +39,7 @@ func main() {
 		textToDrawSplit = textToDrawSplit[1:]
 	}
 
-	for i, line := range textToDrawSplit {
+	for _, line := range textToDrawSplit {
 		if line == "" {
 			fmt.Println()
 			continue
@@ -50,9 +50,7 @@ func main() {
 
 		}
 
-		if i < len(textToDrawSplit)-1 {
-			// fmt.Println()
-		}
+		
 	}
 
 }
